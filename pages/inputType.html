@@ -29,11 +29,14 @@
         </div>
         <div>
             <label for="number">Number input type</label>
-            <input type="number" id="number" name="number" placeholder="Enter number...">
+            <input type="number" id="number" name="number" placeholder="Enter number..." oninput="checkValidity()">
+            <error-output class="number-error" for="number"></error-output>
+            
         </div>
         <div>
             <label for="tel">Telephone input type</label>
             <input type="tel" id="tel" name="tel" placeholder="Enter telephone...">
+            
         </div>
         <div>
             <label for="search">Search input type</label>
@@ -77,6 +80,15 @@
             if (emailRegex.test(email.value))
             emailError.textContent = "";
             else emailError.textContent = "Email is Invalid";
+        };
+
+        const number = document.querySelector('#number');
+        const numError = document.querySelector('.number-error');
+        function checkValidity() {
+            let numRegex = RegExp('^(91)?[ ]?[6-9][0-9]{9}$');
+            if (numRegex.test(number.value))
+            numError.textContent = "";
+            else numError.textContent = "Enter valid number";
         };
     </script>
 </body>
