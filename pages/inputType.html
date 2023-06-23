@@ -95,7 +95,7 @@
         const passwd = document.querySelector('#pwd');
         const pwdError = document.querySelector('.pwd-error');
         passwd.addEventListener('input', function() {
-            let pwdRegex = RegExp('^[a-z]{8,}$');
+            let pwdRegex = RegExp('^[A-Z]{1,}[a-z0-9A-Z]{3,}[!@#%&]{1,}$');
             if (pwdRegex.test(passwd.value))
             pwdError.textContent = "";
             else pwdError.textContent = "Invalid Password";
